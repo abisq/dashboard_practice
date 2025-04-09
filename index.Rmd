@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "HCP Wellbeing Survey"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -7,30 +7,77 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+.libPaths("C:/Users/alessandra.bisquera/AppData/Local/R/win-library/4.2")
 library(flexdashboard)
+library(tidyverse)
+library(plotly)
 ```
 
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart A
+### Responses by location
 
-```{r}
+```{r }
+# Create 20 markers (Random points)
+library(leaflet)
+data = data.frame(
+   long=sample(seq(-150,150),20),
+   lat=sample(seq(-50,50),20),
+   val=round(rnorm(20, mean=50, sd=50),2)
+   
+) 
+data$name <- paste0("country_",letters[1:20],": ", data$val)
+ 
+# Show a circle at each position
+m=leaflet(data = data) %>%
+   addTiles() %>%
+   addCircleMarkers(
+      ~long, ~lat, 
+      radius=~val*0.2 , 
+      color=~ifelse(data$val>100 , "red", "orange"),
+      stroke = TRUE, 
+      fillOpacity = 0.2,
+      popup = ~as.character(name),
+   ) 
+m
+
+
 
 ```
 
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Chart B
+### Age
 
 ```{r}
+# 
+slices <- c(10, 12, 4, 16, 8)
+
+lbls <- c("30-39", "40-49", "50-59", "60-69", "70+")
+pct <- round(slices/sum(slices)*100)
+lbls <- paste(lbls, pct)
+# add percents to labels
+lbls <- paste(lbls,"%",sep="") # ad % to labels
+pie(slices,labels = lbls, col=rainbow(length(lbls)),
+   main="Age of respondents")
 
 ```
 
-### Chart C
+### Professional status
 
 ```{r}
+
+df <- data.frame(dose=c("Retinal specialist", "Resident Doctor", "General Opthalmologist"),
+                len=c(4, 10, 30))
+
+p<-ggplot(df, aes(x=dose, y=len, fill=dose)) +
+  geom_bar(stat="identity")+theme_minimal() +
+  labs(x="", y="N") +
+  theme(legend.position="none",axis.text=element_text(size=16))
+  
+p
 
 ```
 
