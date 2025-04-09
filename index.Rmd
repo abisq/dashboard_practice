@@ -13,6 +13,9 @@ library(tidyverse)
 library(plotly)
 ```
 
+Demographics
+=====================================  
+
 Column {data-width=650}
 -----------------------------------------------------------------------
 
@@ -24,9 +27,10 @@ library(leaflet)
 data = data.frame(
    long=sample(seq(-150,150),20),
    lat=sample(seq(-50,50),20),
-   val=round(rnorm(20, mean=50, sd=50),2)
+   val=round(rnorm(20, mean=100, sd=50),0)
    
 ) 
+data$val <- abs(data$val)
 data$name <- paste0("country_",letters[1:20],": ", data$val)
  
 # Show a circle at each position
@@ -39,7 +43,14 @@ m=leaflet(data = data) %>%
       stroke = TRUE, 
       fillOpacity = 0.2,
       popup = ~as.character(name),
-   ) 
+    label = ~val,
+    labelOptions = labelOptions(noHide = TRUE,textOnly = TRUE,
+                                direction = "center",
+                                style = list(
+                                  "color" = "black", 
+                                  "font-weight" = "bold",
+                                  "font-size" = "15px"
+                                )))
 m
 
 
@@ -75,9 +86,55 @@ df <- data.frame(dose=c("Retinal specialist", "Resident Doctor", "General Opthal
 p<-ggplot(df, aes(x=dose, y=len, fill=dose)) +
   geom_bar(stat="identity")+theme_minimal() +
   labs(x="", y="N") +
-  theme(legend.position="none",axis.text=element_text(size=16))
+  theme(legend.position="none",axis.text=element_text(size=12))
   
 p
 
 ```
+
+
+
+Clinic capacity {data-orientation=rows}
+===================================== 
+
+Row {data-height=600}
+-------------------------------------
+
+### Clinic capacity
+
+```{r}
+
+df2 <- data.frame(x=c("Yes", "No"), y=c(20, 30))
+
+p<-ggplot(df2, aes(x=x, y=y, fill=x)) +
+  geom_bar(stat="identity")+theme_minimal() +
+  labs(x="", y="N", title="Do you feel that capacity is an issue in your clinic?") +
+  theme(legend.position="none",axis.text=element_text(size=16),
+        plot.title = element_text(size=15))
+  
+p
+
+```
+
+Row {data-height=400}
+-------------------------------------
+   
+### Impact
+
+```{r}
+
+
+df3 <- data.frame(x=c("Less time to socialize", "Struggle to maintain \na healthy work life balance",
+                      "I feel a constant \nsense of being rushed"), y=c(10, 30,50))
+
+p<-ggplot(df3, aes(x=x, y=y, fill=x)) +
+  geom_bar(stat="identity")+theme_minimal() +
+  labs(x="", y="N", title="How are you personally impacted by clinic capacity constraints? ") +
+  theme(legend.position="none",axis.text=element_text(size=12),
+        plot.title = element_text(size=12))
+  
+p
+
+```   
+
 
