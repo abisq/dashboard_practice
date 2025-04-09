@@ -2,8 +2,8 @@
 title: "HCP Wellbeing Survey"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: columns
-    vertical_layout: fill
+    orientation: rows
+    #vertical_layout: fill
 ---
 
 ```{r setup, include=FALSE}
@@ -11,19 +11,38 @@ output:
 library(flexdashboard)
 library(tidyverse)
 library(plotly)
+library(leaflet)
+library(kableExtra)
 ```
 
 Demographics
 =====================================  
 
-Column {data-width=650}
+Row
 -----------------------------------------------------------------------
 
-### Responses by location
+### Number of respondents  {.value-box}
+```{r}
+nresp <- 150
+valueBox(nresp, icon = "fa-comments")
+```
+
+
+### Number of countries  {.value-box}
+```{r}
+ncountr <- 15
+valueBox(ncountr, icon = "fa-pencil")
+```
+
+
+
+Row
+-----------------------------------------------------------------------
+
+### Responses by location {data-width=650}
 
 ```{r }
 # Create 20 markers (Random points)
-library(leaflet)
 data = data.frame(
    long=sample(seq(-150,150),20),
    lat=sample(seq(-50,50),20),
@@ -57,10 +76,9 @@ m
 
 ```
 
-Column {data-width=350}
+Row
 -----------------------------------------------------------------------
-
-### Age
+### Age  {data-height=350}
 
 ```{r}
 # 
@@ -76,7 +94,7 @@ pie(slices,labels = lbls, col=rainbow(length(lbls)),
 
 ```
 
-### Professional status
+### Professional status  {data-height=350}
 
 ```{r}
 
@@ -94,13 +112,13 @@ p
 
 
 
-Clinic capacity {data-orientation=rows}
+Clinic capacity 
 ===================================== 
 
-Row {data-height=600}
+Row
 -------------------------------------
 
-### Clinic capacity
+### Clinic capacity {data-width=700}
 
 ```{r}
 
@@ -116,24 +134,17 @@ p
 
 ```
 
-Row {data-height=400}
--------------------------------------
-   
-### Impact
+### Impact {data-width=340}
 
 ```{r}
 
 
-df3 <- data.frame(x=c("Less time to socialize", "Struggle to maintain \na healthy work life balance",
-                      "I feel a constant \nsense of being rushed"), y=c(10, 30,50))
+df3 <- data.frame(Answer=c("Less time to socialize", "Struggle to maintain \na healthy work life balance",
+                      "I feel a constant \nsense of being rushed"), N=c(10, 30,50))
 
-p<-ggplot(df3, aes(x=x, y=y, fill=x)) +
-  geom_bar(stat="identity")+theme_minimal() +
-  labs(x="", y="N", title="How are you personally impacted by clinic capacity constraints? ") +
-  theme(legend.position="none",axis.text=element_text(size=12),
-        plot.title = element_text(size=12))
-  
-p
+df3 %>% 
+kbl(caption = "How are you personally impacted by clinic capacity constraints?" ) %>%
+  kable_paper(bootstrap_options = "striped", full_width = F, position = "left")
 
 ```   
 
