@@ -41,6 +41,9 @@ window.FlexDashboardComponents = [];
 <link href="site_libs/value-box-accent-static-0.6.2/theme-cosmo-value-box.css" rel="stylesheet" />
 <link href="site_libs/flexdashboard-css-0.6.2/flexdashboard.min.css" rel="stylesheet" />
 <link href="site_libs/flexdashboard-css-0.6.2/theme-cosmo.css" rel="stylesheet" />
+<link href="site_libs/value-box-core-0.6.2/value-box.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
 <link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
 <script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
@@ -50,6 +53,8 @@ window.FlexDashboardComponents = [];
 <script src="site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
 <script src="site_libs/leaflet-binding-2.2.2/leaflet.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <style type="text/css">
 /*
   CSS for flexdashboard.js' use of Sly(). The sizing/position of this CSS needs to be
@@ -184,10 +189,9 @@ html, body {
 </div><!--/.container-->
 </div><!--/.navbar-->
 
-<img class="mobile-figure" data-mobile-figure-id=fig1 src="index_files/figure-html/unnamed-chunk-2-1.mb.png" />
-<img class="mobile-figure" data-mobile-figure-id=fig2 src="index_files/figure-html/unnamed-chunk-3-1.mb.png" />
-<img class="mobile-figure" data-mobile-figure-id=fig3 src="index_files/figure-html/unnamed-chunk-4-1.mb.png" />
-<img class="mobile-figure" data-mobile-figure-id=fig4 src="index_files/figure-html/unnamed-chunk-5-1.mb.png" />
+<img class="mobile-figure" data-mobile-figure-id=fig1 src="index_files/figure-html/unnamed-chunk-4-1.mb.png" />
+<img class="mobile-figure" data-mobile-figure-id=fig2 src="index_files/figure-html/unnamed-chunk-5-1.mb.png" />
+<img class="mobile-figure" data-mobile-figure-id=fig3 src="index_files/figure-html/unnamed-chunk-6-1.mb.png" />
 <script type="text/javascript">
 
 
@@ -1871,56 +1875,109 @@ window.FlexDashboardComponents.push({
 
 <div id="demographics" class="section level1">
 <h1>Demographics</h1>
-<div id="column" class="section level2" data-width="650">
-<h2>Column</h2>
-<div id="responses-by-location" class="section level3">
+<div id="row" class="section level2">
+<h2>Row</h2>
+<div id="number-of-respondents" class="section level3 value-box">
+<h3 class="value-box">Number of respondents</h3>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<span class="value-output" data-icon="fa-comments" data-color-accent="primary">150</span>
+</div>
+<div id="number-of-countries" class="section level3 value-box">
+<h3 class="value-box">Number of countries</h3>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<span class="value-output" data-icon="fa-pencil" data-color-accent="primary">15</span>
+</div>
+</div>
+<div id="row-1" class="section level2">
+<h2>Row</h2>
+<div id="responses-by-location" class="section level3" data-width="650">
 <h3>Responses by location</h3>
 <div class="knitr-options" data-fig-width="576" data-fig-height="460">
 
 </div>
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-426c0bf909249aafe1ef" style="width:576px;height:460.8px;"></div>
-<script type="application/json" data-for="htmlwidget-426c0bf909249aafe1ef">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addCircleMarkers","args":[[-16,37,21,11,2,29,-8,26,-2,-28,44,-6,3,-39,-27,-23,20,27,46,-26],[-82,139,-62,-102,-146,132,65,36,-84,-106,141,43,-20,30,89,80,-12,104,-147,33],[16.4,17.2,21.6,14.4,16,35.6,25.8,18.6,12.2,21.6,21.4,8.4,13.2,12.4,24,4.6,4.4,8.2,22,10.6],null,null,{"interactive":true,"className":"","stroke":true,"color":["orange","orange","red","orange","orange","red","red","orange","orange","red","red","orange","orange","orange","red","orange","orange","orange","red","orange"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["orange","orange","red","orange","orange","red","red","orange","orange","red","red","orange","orange","orange","red","orange","orange","orange","red","orange"],"fillOpacity":0.2},null,null,["country_a: 82","country_b: 86","country_c: 108","country_d: 72","country_e: 80","country_f: 178","country_g: 129","country_h: 93","country_i: 61","country_j: 108","country_k: 107","country_l: 42","country_m: 66","country_n: 62","country_o: 120","country_p: 23","country_q: 22","country_r: 41","country_s: 110","country_t: 53"],null,["82","86","108","72","80","178","129","93","61","108","107","42","66","62","120","23","22","41","110","53"],{"interactive":false,"permanent":true,"direction":"center","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":true,"style":{"color":"black","font-weight":"bold","font-size":"15px"},"className":"","sticky":true},null]}],"limits":{"lat":[-39,46],"lng":[-147,141]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-9e0252fb4fff1b09abd7" style="width:576px;height:460.8px;"></div>
+<script type="application/json" data-for="htmlwidget-9e0252fb4fff1b09abd7">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addCircleMarkers","args":[[17,-45,-42,31,36,-50,-43,-1,-3,12,-27,-31,-22,49,-11,-48,26,44,32,-28],[141,-57,-102,-26,109,7,20,-109,143,-3,-11,-96,-41,-38,-130,-144,99,59,-117,-27],[25.8,20.6,14.2,19.2,26,31,9.4,16.4,21.2,5.2,39.2,10.6,35.2,15.8,27.6,18.2,24.4,7.8,26.4,33.6],null,null,{"interactive":true,"className":"","stroke":true,"color":["red","red","orange","orange","red","red","orange","orange","red","orange","red","orange","red","orange","red","orange","red","orange","red","red"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["red","red","orange","orange","red","red","orange","orange","red","orange","red","orange","red","orange","red","orange","red","orange","red","red"],"fillOpacity":0.2},null,null,["country_a: 129","country_b: 103","country_c: 71","country_d: 96","country_e: 130","country_f: 155","country_g: 47","country_h: 82","country_i: 106","country_j: 26","country_k: 196","country_l: 53","country_m: 176","country_n: 79","country_o: 138","country_p: 91","country_q: 122","country_r: 39","country_s: 132","country_t: 168"],null,["129","103","71","96","130","155","47","82","106","26","196","53","176","79","138","91","122","39","132","168"],{"interactive":false,"permanent":true,"direction":"center","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":true,"style":{"color":"black","font-weight":"bold","font-size":"15px"},"className":"","sticky":true},null]}],"limits":{"lat":[-50,49],"lng":[-144,143]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<div id="column-1" class="section level2" data-width="350">
-<h2>Column</h2>
-<div id="age" class="section level3">
+<div id="row-2" class="section level2">
+<h2>Row</h2>
+<div id="age" class="section level3" data-height="350">
 <h3>Age</h3>
 <div class="knitr-options" data-fig-width="576" data-fig-height="460">
 
 </div>
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" width="576" data-figure-id=fig1 /></p>
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" width="576" data-figure-id=fig1 /></p>
 </div>
-<div id="professional-status" class="section level3">
+<div id="professional-status" class="section level3" data-height="350">
 <h3>Professional status</h3>
 <div class="knitr-options" data-fig-width="576" data-fig-height="460">
 
 </div>
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" width="576" data-figure-id=fig2 /></p>
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" width="576" data-figure-id=fig2 /></p>
 </div>
 </div>
 </div>
-<div id="clinic-capacity" class="section level1"
-data-orientation="rows">
+<div id="clinic-capacity" class="section level1">
 <h1>Clinic capacity</h1>
-<div id="row" class="section level2" data-height="600">
+<div id="row-3" class="section level2">
 <h2>Row</h2>
-<div id="clinic-capacity-1" class="section level3">
+<div id="clinic-capacity-1" class="section level3" data-width="700">
 <h3>Clinic capacity</h3>
 <div class="knitr-options" data-fig-width="576" data-fig-height="460">
 
 </div>
-<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" width="576" data-figure-id=fig3 /></p>
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" width="576" data-figure-id=fig3 /></p>
 </div>
-</div>
-<div id="row-1" class="section level2" data-height="400">
-<h2>Row</h2>
-<div id="impact" class="section level3">
+<div id="impact" class="section level3" data-width="340">
 <h3>Impact</h3>
 <div class="knitr-options" data-fig-width="576" data-fig-height="460">
 
 </div>
-<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" width="576" data-figure-id=fig4 /></p>
+<table class=" lightable-paper" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; ">
+<caption>
+How are you personally impacted by clinic capacity constraints?
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Answer
+</th>
+<th style="text-align:right;">
+N
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Less time to socialize
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Struggle to maintain a healthy work life balance
+</td>
+<td style="text-align:right;">
+30
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+I feel a constant sense of being rushed
+</td>
+<td style="text-align:right;">
+50
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -1945,7 +2002,7 @@ $(document).ready(function() {
 $(document).ready(function () {
   FlexDashboard.init({
     fillPage: true,
-    orientation: "columns",
+    orientation: "rows",
     storyboard: false,
     defaultFigWidth: 576,
     defaultFigHeight: 460,
