@@ -18,7 +18,7 @@ library(kableExtra)
 Demographics
 =====================================  
 
-Row
+Row {data-height=350}
 -----------------------------------------------------------------------
 
 ### Number of respondents  {.value-box}

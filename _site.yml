@@ -1,2 +1,3 @@
 name: "flexdashboard-example"
 output_dir: docs
+post-render: encrypt.r
